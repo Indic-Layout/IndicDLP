@@ -179,7 +179,7 @@ cd IndicDLP
 ### 2. Create and activate environment
 
 ```bash
-conda create -n indicdlp python=3.10
+conda create -n indicdlp python=3.12
 conda activate indicdlp
 
 ```
@@ -201,11 +201,37 @@ To train a YOLOv10x model on the IndicDLP dataset, run:
 yolo detect train \
   data=dataset_root/data.yaml \
   model=yolov10x.yaml \
+  device=0,1,2,3,4,5,6,7 \
   epochs=100 \
   imgsz=1024 \
   batch=64 \
   name=indicdlp_yolov10x \
   patience: 5
+
+```
+
+```bash
+
+yolo detect test \
+  model=/path/to/modl_weights \
+  data=dataset_root/data.yaml \
+  split=test
+
+```
+
+```bash
+
+yolo detect predict \
+  model=/path/to/modl_weights \
+  source=dataset_root/images/test/ \
+  conf=0.2 \
+  save=True
+
+```
+
+
+
+
 
 
 

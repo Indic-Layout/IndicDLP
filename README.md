@@ -32,7 +32,7 @@
 2. [Annotation Schema](#-annotation-schema)
 3. [Dataset Format](#-directory-format)
 4. [Getting Started](#-getting-started)
-5. [Model & Checkpoints](#-model--checkpoints)
+5. [Model Checkpoints](#-model--checkpoints)
 6. [Evaluation](#-evaluation)
 7. [Finetuning](#-finetuning)
 8. [Visualizations](#-visualizations)
@@ -76,7 +76,7 @@
   - Covers **42 physical and logical region labels** across all document types
 
 <p align="center">
-  <img src="images/paper-fig1.png" alt="Dataset Example with Annotations" width="720"/>
+  <img src="images/paper-fig1.png" alt="Dataset Example with Annotations" width="100%"/>
   <br>
   <em>Figure 1: Samples from the IndicDLP dataset highlighting its diversity across docu-
 ment formats, domains, languages, and temporal span. For improved differentiability,
@@ -190,8 +190,21 @@ pip install -r requirements.txt
 
 ```
 
+---
+
 
 ---
+
+## ✅ Model Checkpoints
+
+| Model     | Pretraining Dataset | mAP[50:95] | Download |
+|-----------|---------------------|------------|----------|
+| YOLOv10x  | UED-mini (75K)      | **57.7**   | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
+| YOLOv10x  | None (Scratch)      | 55.8       | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
+
+> ✅ *UED-mini pretraining improves performance by +1.9 mAP compared to training from scratch.*
+
+
 
 ## 🏋️ Training
 
@@ -209,15 +222,19 @@ yolo detect train \
   patience: 5
 
 ```
+## 📏 Evaluation
+
 
 ```bash
 
-yolo detect test \
+yolo detect val \
   model=/path/to/modl_weights \
   data=dataset_root/data.yaml \
   split=test
 
 ```
+
+## 🧪 Inference
 
 ```bash
 
@@ -229,9 +246,52 @@ yolo detect predict \
 
 ```
 
+## 🔄 Finetuning
+
+```bash
 
 
+yolo detect train \
+  data=your_dataset/data.yaml \
+  model=/path/to/model \
+  epochs=100 \
+  imgsz=1024 \
+  batch=64 \
+  patience=5 \
+  name=your_custom_exp
+```
+
+## visualization
+
+<p align="center">
+  <img src="images/paper-fig2.png" alt="visualization" width="100%"/>
+  <br>
+  <em>Figure 2: Qualitative analysis of YOLOv10x model predictions on IndicDLP test set
+when trained from scratch on DocLayNet (Column 1), D4LA (Column 2), M6Doc (Col-
+umn 3), and IndicDLP (Column 4), compared to the Ground Truth (Column 5).
+For instance, in Rows 1 and 3, for M6Doc, despite having labels like advertisements
+and sidebars, distribution differences prevent accurate localization and classification.
+In Rows 2 and 4, models trained on IndicDLP show superior performance on non-
+standard and multicolumn layouts, respectively. Row 5 highlights partial figure detec-
+tions for DocLayNet and D4LA, even though it is a common region across all the above
+datasets.</em>
+</p>
 
 
+## Citation
 
+Please cite our paper if you find this dataset or work useful:
 
+```bibtex
+
+@article{yourcitation2025, 
+title={IndicDLP: A Foundational Dataset for Multi-Lingual and Multi-Domain Document Layout Parsing}, 
+author={ Oikantik Nath, Sahithi Kukkala, Mitesh Khapra, Ravi Kiran Sarvadevabhatla}, 
+booktitle = {International Conference on Document Analysis and Recognition,
+            {ICDAR}},
+year={2025}}
+
+```
+
+## Contact
+For any queries, please contact [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in.)

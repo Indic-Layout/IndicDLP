@@ -203,12 +203,13 @@ pip install -r requirements.txt
 
 ## ✅ Model Checkpoints
 
-| Model     | Pretraining Dataset | mAP[50:95] | Download |
-|-----------|---------------------|------------|----------|
-| YOLOv10x  | UED-mini (75K)      | **57.7**   | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
-| YOLOv10x  | None (Scratch)      | 55.8       | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
+| Model      | mAP[50:95] | Download |
+|----------- |------------|----------|
+| YOLOv10x   |  **57.7**  | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
+| Doclaynet  |  54.5      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
+| RoDLA      |  53.1      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
 
-> ✅ *UED-mini pretraining improves performance by +1.9 mAP compared to training from scratch.*
+
 
 
 

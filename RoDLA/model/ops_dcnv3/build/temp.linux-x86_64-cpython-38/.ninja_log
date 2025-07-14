@@ -1,0 +1,4 @@
+# ninja log v5
+0	8286	1752132158064180362	/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/build/temp.linux-x86_64-cpython-38/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/src/cpu/dcnv3_cpu.o	d12257c52e9aed7c
+0	24155	1752132173919986260	/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/build/temp.linux-x86_64-cpython-38/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/src/vision.o	f2aa4373d0110253
+0	182946	1752132332674042936	/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/build/temp.linux-x86_64-cpython-38/home/sahithi_kukkala/Rodla/RoDLA/model/ops_dcnv3/src/cuda/dcnv3_cuda.o	4b98251812f04eb1

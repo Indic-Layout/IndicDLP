@@ -173,7 +173,22 @@ Once downloaded, place the contents inside a directory called `dataset_root/` to
 
 ## ⚙️ Getting Started
 
-We recommend using Python 3.10+ and a virtual environment.
+
+
+---
+
+## ✅ Model Checkpoints
+
+| Model      | mAP[50:95] | Download |
+|----------- |------------|----------|
+| YOLOv10x   |  **57.7**  | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
+| Doclaynet  |  54.5      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
+| RoDLA      |  53.1      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
+
+
+---
+
+We recommend using Python 3.10+ and a virtual environment for yolo and doclayout yolo.
 
 ### 1. Clone the repository
 
@@ -197,21 +212,6 @@ pip install -r requirements.txt
 ```
 
 ---
-
-
----
-
-## ✅ Model Checkpoints
-
-| Model      | mAP[50:95] | Download |
-|----------- |------------|----------|
-| YOLOv10x   |  **57.7**  | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
-| Doclaynet  |  54.5      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
-| RoDLA      |  53.1      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
-
-
-
-
 
 ## 🏋️ Training
 
@@ -267,6 +267,89 @@ yolo detect train \
   patience=5 \
   name=your_custom_exp
 ```
+
+
+
+### RoDLA environment
+
+```bash
+conda create -n RoDLA python=3.8.10
+conda activate RoDLA
+
+```
+### 1. Install dependencies
+
+```bash
+pip install torch==1.12.1+cu118 torchvision==0.13.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+pip install mmcv-full==1.6.0 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.0.1/index.html
+pip install -r requirements.txt
+```
+### 2. Install ocrodeg Dependencies
+
+```bash
+git clone https://github.com/NVlabs/ocrodeg.git
+cd ./ocrodeg
+pip install -e .
+
+```
+
+### 3. Install detectron2 Dependencies
+
+```bash
+git clone https://github.com/facebookresearch/detectron2.git
+cd detectron2
+pip install -e .
+
+```
+
+### 4. Compile CUDA operators
+
+```bash
+
+cd ./model/ops_dcnv3
+sh ./make.sh
+python test.py
+
+```
+
+
+
+## 🏋️ Training
+
+To train a YOLOv10x model on the IndicDLP dataset, run:
+
+```bash
+cd RoDLA/model
+
+bash dist_train.sh configs/indic/rodla_internimage_xl_indic.py 8
+
+```
+## 📏 Evaluation
+
+
+```bash
+
+python -u test.py configs/inidc/rodla_internimage_xl_indic.py \
+  checkpoint_dir/rodla_internimage_xl_indic.pth \
+  --work-dir '/path/to/workdir' \
+  --eval bbox \
+  --cfg-options data.test.ann_file= '/path/to/val.json' \
+                data.test.img_prefix='/path/to/images/val'
+
+```
+
+## 🧪 Inference
+
+```bash
+
+python image_demo.py /path/to/image configs/inidc/rodla_internimage_xl_indic.py \
+  checkpoint_dir/rodla_internimage_xl_indic.pth --out /path/to/outputdir
+```
+
+
+
+
+
 
 ## visualization
 

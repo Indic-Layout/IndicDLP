@@ -1,0 +1,30 @@
+name: rodla
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8.10
+  - pip
+  - cudatoolkit=11.8
+  - pytorch=2.0.1
+  - torchvision=0.15.2
+  - torchaudio
+  - mkl
+  - mkl-service
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - cython
+  - pyyaml
+  - tqdm
+  - typing_extensions
+  - six
+  - pillow
+  - yapf
+  - timm
+  - pip:
+      - mmcv-full==1.6.0
+      - mmdet==2.28.1

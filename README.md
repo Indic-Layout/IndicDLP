@@ -171,7 +171,7 @@ You can download the full IndicDLP dataset (images and annotations) using the fo
 Once downloaded, place the contents inside a directory called `dataset_root/` to match the format shown above.
 
 
-## ⚙️ Getting Started
+## 🛠 Getting Started
 
 
 
@@ -188,34 +188,26 @@ Once downloaded, place the contents inside a directory called `dataset_root/` to
 
 ---
 
-We recommend using Python 3.10+ and a virtual environment for yolo and doclayout yolo.
 
-### 1. Clone the repository
+We provide code and instructions to use the IndicDLP dataset with the following toolkits:
 
-```bash
-git clone https://github.com/IndicDLP/IndicDLP.git
-cd IndicDLP
+1. [YOLOv10](#-yolov10)
+2. [DocLayout-YOLO](#-doclayout-yolo)
+3. [RoDLA](#-rodla)
 
-```
-### 2. Create and activate environment
+---
+
+## ⚙️ YOLOv10
+
+### Environment Setup
 
 ```bash
 conda create -n indicdlp python=3.12
 conda activate indicdlp
-
-```
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
-
 ```
 
----
-
-## 🏋️ Training
-
-To train a YOLOv10x model on the IndicDLP dataset, run:
+### Training
 
 ```bash
 yolo detect train \
@@ -226,132 +218,117 @@ yolo detect train \
   imgsz=1024 \
   batch=64 \
   name=indicdlp_yolov10x \
-  patience: 5
-
+  patience=5
 ```
-## 📏 Evaluation
 
+### Evaluation
 
 ```bash
-
 yolo detect val \
-  model=/path/to/modl_weights \
+  model=/path/to/model_weights.pt \
   data=dataset_root/data.yaml \
   split=test
-
 ```
 
-## 🧪 Inference
+### Inference
 
 ```bash
-
 yolo detect predict \
-  model=/path/to/modl_weights \
+  model=/path/to/model_weights.pt \
   source=dataset_root/images/test/ \
   conf=0.2 \
   save=True
-
 ```
 
-## 🔄 Finetuning
+---
+
+## ⚙️ DocLayout-YOLO
 
 ```bash
-
-
-yolo detect train \
-  data=your_dataset/data.yaml \
-  model=/path/to/model \
-  epochs=100 \
-  imgsz=1024 \
-  batch=64 \
-  patience=5 \
-  name=your_custom_exp
+cd doclayout-yolo/
+python train.py
+python test.py
+python predict.py
 ```
 
+---
 
+## ⚙️ RoDLA
 
-### RoDLA environment
+### Environment Setup
 
 ```bash
 conda create -n RoDLA python=3.8.10
 conda activate RoDLA
-
 ```
-### 1. Install dependencies
+
+### Install Dependencies
 
 ```bash
 pip install torch==1.12.1+cu118 torchvision==0.13.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 pip install mmcv-full==1.6.0 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.0.1/index.html
 pip install -r requirements.txt
 ```
-### 2. Install ocrodeg Dependencies
+
+### Install ocrodeg
 
 ```bash
 git clone https://github.com/NVlabs/ocrodeg.git
-cd ./ocrodeg
+cd ocrodeg
 pip install -e .
-
+cd ..
 ```
 
-### 3. Install detectron2 Dependencies
+### Install detectron2
 
 ```bash
 git clone https://github.com/facebookresearch/detectron2.git
 cd detectron2
 pip install -e .
-
+cd ..
 ```
 
-### 4. Compile CUDA operators
+### Compile CUDA operators
 
 ```bash
-
-cd ./model/ops_dcnv3
-sh ./make.sh
+cd RoDLA/model/ops_dcnv3
+sh make.sh
 python test.py
-
 ```
 
+---
 
-
-## 🏋️ Training
-
-To train a YOLOv10x model on the IndicDLP dataset, run:
+### Training RoDLA
 
 ```bash
 cd RoDLA/model
-
 bash dist_train.sh configs/indic/rodla_internimage_xl_indic.py 8
-
 ```
-## 📏 Evaluation
 
+### Evaluation
 
 ```bash
-
-python -u test.py configs/inidc/rodla_internimage_xl_indic.py \
+python -u test.py configs/indic/rodla_internimage_xl_indic.py \
   checkpoint_dir/rodla_internimage_xl_indic.pth \
   --work-dir '/path/to/workdir' \
   --eval bbox \
-  --cfg-options data.test.ann_file= '/path/to/val.json' \
+  --cfg-options data.test.ann_file='/path/to/val.json' \
                 data.test.img_prefix='/path/to/images/val'
-
 ```
 
-## 🧪 Inference
+### Inference
 
 ```bash
-
-python image_demo.py /path/to/image configs/inidc/rodla_internimage_xl_indic.py \
-  checkpoint_dir/rodla_internimage_xl_indic.pth --out /path/to/outputdir
+python image_demo.py /path/to/image \
+  configs/indic/rodla_internimage_xl_indic.py \
+  checkpoint_dir/rodla_internimage_xl_indic.pth \
+  --out /path/to/outputdir
 ```
 
+---
 
 
-
-
-
-## visualization
+## 🔍 Visualizations
 
 <p align="center">
   <img src="images/paper-fig2.png" alt="visualization" width="100%"/>
@@ -368,7 +345,7 @@ datasets.</em>
 </p>
 
 
-## Citation
+## 📜 Citation
 
 Please cite our paper if you find this dataset or work useful:
 
@@ -383,5 +360,5 @@ year={2025}}
 
 ```
 
-## Contact
+## 📬 Contact
 For any queries, please contact [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in.)

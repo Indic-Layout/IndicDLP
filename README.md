@@ -5,29 +5,13 @@
 <h2> A Foundational Dataset for Multi-Lingual and Multi-Domain Document Layout Parsing </h2>
 </samp>
 
-<!-- **_[Published at ICDAR 2025](https://www.icdar2025.com/)_**
 
-| **[ [```Paper```](https://link_to_paper.com) ]** | **[ [```Website```](https://indicdlp.github.io/) ]** |
-|:-------------------:|:-------------------:| -->
-
-**_[Published at ICDAR 2025](https://www.icdar2025.com/)_**
+**_[ICDAR 2025 (ORAL)](https://www.icdar2025.com/)_**
 
 | [![PDF + arXiv](https://img.shields.io/badge/PDF%20|%20arXiv-brightgreen)](https://link_to_paper.com) | [![Project + Homepage](https://img.shields.io/badge/Project%20|%20Homepage-ff5f5f)](https://indicdlp.github.io/) | [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://github.com/IndicDLP/IndicDLP/blob/main/LICENCE) |
 
 
 
-<!-- <table>
-    <tr>
-        <td>
-            <a href="https://your-teaser-video-link.com" target="_blank">
-                <img src="assets/your_teaser_image.png" alt="Watch the video" width="640" height="360" border="5"/>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <th><samp><a href="https://your-teaser-video-link.com" target="_blank">Teaser Video (Click to view)</a></samp></th>
-    </tr>
-</table> -->
 </div>
 
 ---
@@ -36,14 +20,16 @@
 
 1. [Overview](#-indicdlp-dataset)
 2. [Annotation Schema](#-annotation-schema)
-3. [Dataset Format](#-directory-format)
-4. [Getting Started](#-getting-started)
-5. [Model Checkpoints](#-model--checkpoints)
-6. [Evaluation](#-evaluation)
-7. [Finetuning](#-finetuning)
-8. [Visualizations](#-visualizations)
-9. [Citation](#-citation)
-10. [Contact](#-contact)
+3. [Label Distribution](#-label-distribution)
+4. [Dataset Format](#-directory-format)
+5. [Download Dataset](#-download-dataset)
+6. [Getting Started](#-getting-started)
+7. [YOLOv10](#-yolov10)
+8. [DocLayout-YOLO](#-doclayout-yolo)
+9. [RoDLA](#-rodla)
+10. [Visualizations](#-visualizations)
+11. [Citation](#-citation)
+12. [Contact](#-contact)
 
 ---
 
@@ -181,10 +167,9 @@ Once downloaded, place the contents inside a directory called `dataset_root/` to
 
 | Model      | mAP[50:95] | Download |
 |----------- |------------|----------|
-| YOLOv10x   |  **57.7**  | [Download](https://your-checkpoint-link.com/yolov10x_uedmini.pt) |
-| Doclaynet  |  54.5      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
-| RoDLA      |  53.1      | [Download](https://your-checkpoint-link.com/yolov10x_scratch.pt) |
-
+| YOLOv10x   |  **57.7**  | [Download](https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1) |
+| Doclaynet  |  54.5      | [Download](https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1) |
+| RoDLA      |  53.1      | [Download](https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1) |
 
 ---
 

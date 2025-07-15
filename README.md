@@ -148,37 +148,43 @@ dataset_root/
 ---
 
 
+
 ## ⬇️ Download Dataset
 
-You can download the full IndicDLP dataset (images and annotations) using the following link:
+You can download the full IndicDLP dataset (images and annotations) using the link below:
 
-📦 [Download IndicDLP Dataset ](https://aikosh.indiaai.gov.in/home/datasets/details/indicdlp.html)
+📦 [Download IndicDLP Dataset](https://aikosh.indiaai.gov.in/home/datasets/details/indicdlp.html)
 
-Once downloaded, place the contents inside a directory called `dataset_root/` to match the format shown above.
-
-
-## 🛠 Getting Started
-
-
+After downloading, extract and place the contents inside a directory named `dataset_root/`, as referenced in the scripts below.
 
 ---
 
 ## ✅ Model Checkpoints
 
-| Model      | mAP[50:95] | Download |
-|----------- |------------|----------|
-| YOLOv10x   |  **57.7**  | [Download](https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1) |
-| Doclaynet  |  54.5      | [Download](https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1) |
-| RoDLA      |  53.1      | [Download](https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1) |
+We provide three ready-to-use model checkpoints fine-tuned on the IndicDLP dataset to support robust document layout parsing across multiple Indic languages and domains.
 
----
+| Model            | mAP<sub>[50:95]</sub> | Download Link |
+|------------------|----------------------|----------------|
+| **YOLOv10x**      | **57.7**             | [Download](https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1) |
+| **DocLayout-YOLO** | 54.5                | [Download](https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1) |
+| **RoDLA**         | 53.1                | [Download](https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1) |
 
+### 📥 Download with CLI
 
-We provide code and instructions to use the IndicDLP dataset with the following toolkits:
+```bash
+wget -O md2_PT_indicdlp_FT.pt https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1
+wget -O doclayout_yolo_indicdlp.pt https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1
+wget -O rodla_internimage_xl_indicdlp.pth https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1
 
-1. [YOLOv10](#-yolov10)
-2. [DocLayout-YOLO](#-doclayout-yolo)
-3. [RoDLA](#-rodla)
+```
+
+## 🛠 Getting Started
+
+We provide code and instructions for using the IndicDLP dataset with the following models:
+
+- [YOLOv10](#️-yolov10)
+- [DocLayout-YOLO](#️-doclayout-yolo)
+- [RoDLA](#️-rodla)
 
 ---
 
@@ -229,11 +235,37 @@ yolo detect predict \
 
 ## ⚙️ DocLayout-YOLO
 
+### Training
+
 ```bash
-cd doclayout-yolo/
-python train.py
-python test.py
-python predict.py
+python train.py \
+  --data data \
+  --model m-doclayout \
+  --epoch 100 \
+  --image-size 1024 \
+  --batch-size 64 \
+  --project doclayout-yolo/indicdlp \
+  --plot 1 \
+  --optimizer SGD \
+  --lr0 0.04 \
+  --patience 5
+```
+
+### Evaluation
+
+```bash
+python val.py \
+  --data data \
+  --model /path/to/model.pt
+```
+
+### Inference
+
+```bash
+python predict.py \
+  --model_path /path/to/model.pt \
+  --image_path /path/to/image.jpg \
+  --output_path /path/to/result.jpg
 ```
 
 ---
@@ -245,6 +277,7 @@ python predict.py
 ```bash
 conda create -n RoDLA python=3.8.10
 conda activate RoDLA
+cd RoDLA
 ```
 
 ### Install Dependencies
@@ -255,35 +288,30 @@ pip install mmcv-full==1.6.0 -f https://download.openmmlab.com/mmcv/dist/cu118/t
 pip install -r requirements.txt
 ```
 
-### Install ocrodeg
+### Install Auxiliary Packages
 
 ```bash
+# Ocrodeg
 git clone https://github.com/NVlabs/ocrodeg.git
 cd ocrodeg
 pip install -e .
 cd ..
-```
 
-### Install detectron2
-
-```bash
+# Detectron2
 git clone https://github.com/facebookresearch/detectron2.git
 cd detectron2
 pip install -e .
 cd ..
 ```
 
-### Compile CUDA operators
+### Compile CUDA Operators
 
 ```bash
 cd RoDLA/model/ops_dcnv3
 sh make.sh
-python test.py
 ```
 
----
-
-### Training RoDLA
+### Training
 
 ```bash
 cd RoDLA/model
@@ -295,55 +323,61 @@ bash dist_train.sh configs/indic/rodla_internimage_xl_indic.py 8
 ```bash
 python -u test.py configs/indic/rodla_internimage_xl_indic.py \
   checkpoint_dir/rodla_internimage_xl_indic.pth \
-  --work-dir '/path/to/workdir' \
+  --work-dir /path/to/workdir \
   --eval bbox \
-  --cfg-options data.test.ann_file='/path/to/val.json' \
-                data.test.img_prefix='/path/to/images/val'
+  --cfg-options \
+    data.test.ann_file=/path/to/val.json \
+    data.test.img_prefix=/path/to/images/val
 ```
 
 ### Inference
 
 ```bash
-python image_demo.py /path/to/image \
+python image_demo.py /path/to/image.jpg \
   configs/indic/rodla_internimage_xl_indic.py \
-  checkpoint_dir/rodla_internimage_xl_indic.pth \
+  checkpoint_dir/rodla_internimage_xl_indicdlp.pth \
   --out /path/to/outputdir
 ```
 
 ---
 
-
 ## 🔍 Visualizations
 
 <p align="center">
-  <img src="images/paper-fig2.png" alt="visualization" width="100%"/>
+  <img src="images/paper-fig2.png" alt="Visualization" width="100%"/>
   <br>
-  <em>Figure 2: Qualitative analysis of YOLOv10x model predictions on IndicDLP test set
-when trained from scratch on DocLayNet (Column 1), D4LA (Column 2), M6Doc (Col-
-umn 3), and IndicDLP (Column 4), compared to the Ground Truth (Column 5).
-For instance, in Rows 1 and 3, for M6Doc, despite having labels like advertisements
-and sidebars, distribution differences prevent accurate localization and classification.
-In Rows 2 and 4, models trained on IndicDLP show superior performance on non-
-standard and multicolumn layouts, respectively. Row 5 highlights partial figure detec-
-tions for DocLayNet and D4LA, even though it is a common region across all the above
-datasets.</em>
+  <em>Figure 2: Qualitative analysis of YOLOv10x predictions on the IndicDLP test set. Each column corresponds to models trained on different datasets: DocLayNet, D4LA, M6Doc, and IndicDLP, followed by the Ground Truth. IndicDLP models show stronger performance on complex layouts and region types such as multicolumns and non-standard figures.</em>
 </p>
 
+---
+
+## 🙏 Acknowledgements
+
+We build upon the excellent work from the following repositories:
+
+- [Ultralytics YOLOv10](https://github.com/ultralytics/ultralytics)
+- [DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLOR)
+- [RoDLA](https://github.com/yufanchen96/RoDLA)
+
+We sincerely thank the authors for their open-source contributions.
+
+---
 
 ## 📜 Citation
 
-Please cite our paper if you find this dataset or work useful:
+If you find this dataset or work useful, please consider citing:
 
 ```bibtex
-
 @article{yourcitation2025, 
-title={IndicDLP: A Foundational Dataset for Multi-Lingual and Multi-Domain Document Layout Parsing}, 
-author={ Oikantik Nath, Sahithi Kukkala, Mitesh Khapra, Ravi Kiran Sarvadevabhatla}, 
-booktitle = {International Conference on Document Analysis and Recognition,
-            {ICDAR}},
-year={2025}}
-
+  title={IndicDLP: A Foundational Dataset for Multi-Lingual and Multi-Domain Document Layout Parsing}, 
+  author={Oikantik Nath, Sahithi Kukkala, Mitesh Khapra, Ravi Kiran Sarvadevabhatla}, 
+  booktitle={International Conference on Document Analysis and Recognition (ICDAR)}, 
+  year={2025}
+}
 ```
 
+---
+
 ## 📬 Contact
-For any queries, please contact [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in.)
+
+For questions or collaborations, please reach out to [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in).

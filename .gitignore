@@ -1,1 +1,3 @@
-model/detetron2/ocrodeg
+model/detetron2
+checkpoints
+model/ocrodeg

@@ -1,0 +1,11 @@
+ultralytics
+wandb
+tqdm==4.65.2
+wandb==0.21.0
+opencv-fixer
+opencv-python
+Pillow
+timm
+opencv-python-headless
+doclayout-yolo
+

@@ -123,6 +123,19 @@ region label names.</em>
 
 ---
 
+
+
+
+## ⬇️ Download Dataset
+
+You can download the full IndicDLP dataset (images and annotations) using the link below:
+
+📦 [Download IndicDLP Dataset](https://aikosh.indiaai.gov.in/home/datasets/details/indicdlp.html)
+
+After downloading, extract and place the contents inside a directory named `dataset_root/`, as referenced in the scripts below.
+
+---
+
 ## 📁 Directory Format
 
 The dataset is structured as follows:
@@ -148,17 +161,6 @@ dataset_root/
 ---
 
 
-
-## ⬇️ Download Dataset
-
-You can download the full IndicDLP dataset (images and annotations) using the link below:
-
-📦 [Download IndicDLP Dataset](https://aikosh.indiaai.gov.in/home/datasets/details/indicdlp.html)
-
-After downloading, extract and place the contents inside a directory named `dataset_root/`, as referenced in the scripts below.
-
----
-
 ## ✅ Model Checkpoints
 
 We provide three ready-to-use model checkpoints fine-tuned on the IndicDLP dataset to support robust document layout parsing across multiple Indic languages and domains.
@@ -172,9 +174,9 @@ We provide three ready-to-use model checkpoints fine-tuned on the IndicDLP datas
 ### 📥 Download with CLI
 
 ```bash
-wget -O md2_PT_indicdlp_FT.pt https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1
-wget -O doclayout_yolo_indicdlp.pt https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1
-wget -O rodla_internimage_xl_indicdlp.pth https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1
+wget -O md2_PT_indicdlp_FT.pt "https://zenodo.org/records/15881917/files/md2_PT_indicdlp_FT.pt?download=1"
+wget -O doclayout_yolo_indicdlp.pt "https://zenodo.org/records/15881917/files/doclayout_yolo_indicdlp.pt?download=1"
+wget -O rodla_internimage_xl_indicdlp.pth "https://zenodo.org/records/15881917/files/rodla_internimage_xl_indicdlp.pth?download=1"
 
 ```
 
@@ -356,7 +358,7 @@ python image_demo.py /path/to/image.jpg \
 We build upon the excellent work from the following repositories:
 
 - [Ultralytics YOLOv10](https://github.com/ultralytics/ultralytics)
-- [DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLOR)
+- [DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLO)
 - [RoDLA](https://github.com/yufanchen96/RoDLA)
 
 We sincerely thank the authors for their open-source contributions.
@@ -380,5 +382,6 @@ If you find this dataset or work useful, please consider citing:
 
 ## 📬 Contact
 
-For issues in running code/links not working, please reach out to [Sahithi Kukkala]{mailto:sahithi.kukkala@research.iiit.ac.in} or [Oikantik Nath]{mailto:oikantiknath@gmail.com} or mention in the **ISSUES** section.
+For issues in running code/links not working, please reach out to [Sahithi Kukkala](mailto:sahithi.kukkala@research.iiit.ac.in) or [Oikantik Nath](mailto:oikantik@cse.iitm.ac.in) or mention in the **ISSUES** section.
+
 For questions or collaborations, please reach out to [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in).

@@ -380,4 +380,5 @@ If you find this dataset or work useful, please consider citing:
 
 ## 📬 Contact
 
+For issues in running code/links not working, please reach out to [Sahithi Kukkala]{mailto:sahithi.kukkala@research.iiit.ac.in} or [Oikantik Nath]{mailto:oikantiknath@gmail.com} or mention in the **ISSUES** section.
 For questions or collaborations, please reach out to [Dr. Ravi Kiran Sarvadevabhatla](mailto:ravi.kiran@iiit.ac.in).

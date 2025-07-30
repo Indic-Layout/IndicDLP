@@ -195,7 +195,7 @@ A **150-page annotation guideline** was created, covering region definitions and
 To ensure fairness and usability, we divided the dataset into **train**, **validation**, and **test** sets in an 8:1:1 ratio. Label distributions are carefully balanced across all splits.
 
 <p align="center">
-  <img src="images/IndicDLP_instances.png" alt="Label distribution chart" width="720"/>
+  <img src="images/IndicDLP_instances_dis.png" alt="Label distribution chart" width="720"/>
   <br>
   <em>Table: Distribution of layout regions in IndicDLP, sorted in alphabetical order of
 region label names.</em>

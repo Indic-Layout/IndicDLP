@@ -67,14 +67,137 @@
   - Annotated using **Shoonya** – an open-source annotation tool built on Label Studio  
   - Covers **42 physical and logical region labels** across all document types
 
-<p align="center">
-  <img src="images/paper-fig1.png" alt="Dataset Example with Annotations" width="100%"/>
+<!-- <p align="center">
+  <img src="images/paper-fig1.png" alt="Dataset Example with Annotations" width="720"/>
   <br>
   <em>Figure 1: Samples from the IndicDLP dataset highlighting its diversity across docu-
 ment formats, domains, languages, and temporal span. For improved differentiability,
 segmentation masks are used instead of bounding boxes to highlight regions more ef-
 fectively.</em>
-</p>
+</p> -->
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="columns is-multiline is-centered is-vcentered">
+
+      <!-- Image A -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/ar_as_000253_0.png" target="_blank">
+          <img src="fig/images/ar_as_000253_0.png" alt="Acts & Rules"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(A) Acts & Rules</p>
+      </div>
+
+      <!-- Image B -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/br_bn_000817_1.png" target="_blank">
+          <img src="fig/images/br_bn_000817_1.png" alt="Brochures"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(B) Brochures</p>
+      </div>
+
+      <!-- Image C -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/fm_bn_000220_0.png" target="_blank">
+          <img src="fig/images/fm_bn_000220_0.png" alt="Forms"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(C) Forms</p>
+      </div>
+
+      <!-- Image D -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/mg_or_000344_0.png" target="_blank">
+          <img src="fig/images/mg_or_000344_0.png" alt="Magazines"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(D) Magazines</p>
+      </div>
+
+      <!-- Image E -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/mn_mr_000321_0.png" target="_blank">
+          <img src="fig/images/mn_mr_000321_0.png" alt="Manuals"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(E) Manuals</p>
+      </div>
+
+      <!-- Image F -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/np_bn_000047_0.png" target="_blank">
+          <img src="fig/images/np_bn_000047_0.png" alt="Newspapers"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(F) Newspapers</p>
+      </div>
+
+      <!-- Image G -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/nt_pa_000046_0.png" target="_blank">
+          <img src="fig/images/nt_pa_000046_0.png" alt="Notices"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(G) Notices</p>
+      </div>
+
+      <!-- Image H -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/nv_pa_000112_0.png" target="_blank">
+          <img src="fig/images/nv_pa_000112_0.png" alt="Novels"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(H) Novels</p>
+      </div>
+
+      <!-- Image I -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/qp_bn_000287_1.png" target="_blank">
+          <img src="fig/images/qp_bn_000287_1.png" alt="Question Papers"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(I) Question Papers</p>
+      </div>
+
+      <!-- Image J -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/rp_en_001247_0.png" target="_blank">
+          <img src="fig/images/rp_en_001247_0.png" alt="Research Papers"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(J) Research Papers</p>
+      </div>
+
+      <!-- Image K -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/sy_ml_000721_0.png" target="_blank">
+          <img src="fig/images/sy_ml_000721_0.png" alt="Syllabi"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(K) Syllabi</p>
+      </div>
+
+      <!-- Image L -->
+      <div class="column is-one-third has-text-centered">
+        <a href="https://raw.githubusercontent.com/Indic-Layout/IndicDLP/main/fig/images/tb_ta_000689_0.png" target="_blank">
+          <img src="fig/images/tb_ta_000689_0.png" alt="Textbooks"
+               style="width: 300px; margin-bottom: 10px; border: 0.3px solid black;">
+        </a>
+        <p class="subtitle is-6">(L) Textbooks</p>
+      </div>
+    </div>
+
+    <!-- Caption Below All Images -->
+    <h2 class="subtitle has-text-centered mt-5">
+      Samples from the IndicDLP dataset highlighting its diversity across document formats, domains, languages, and temporal span. For improved differentiability, segmentation masks are used instead of bounding boxes to highlight regions more effectively.
+    </h2>
+
+  </div>
+</section>
+
 
 ---
 

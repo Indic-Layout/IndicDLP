@@ -40,7 +40,7 @@
 ### 🌍 Key Features
 
 - 📖 **Multi-Lingual Coverage**  
-  121,198 high-resolution document images spanning **11 Indic languages** and **English**:  
+  119,806 high-resolution document images spanning **11 Indic languages** and **English**:  
   Assamese (8.6%), Bengali (7.9%), English (9.1%), Gujarati (8.6%), Hindi (8.7%), Kannada (8.5%), Malayalam (8.8%), Marathi (8.4%), Odia (8.2%), Punjabi (6.9%), Tamil (9.2%), Telugu (7.2%)
 
 - 🗂 **Multi-Domain Representation**  

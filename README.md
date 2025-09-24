@@ -450,11 +450,22 @@ We sincerely thank the authors for their open-source contributions.
 If you find this dataset or work useful, please consider citing:
 
 ```bibtex
-@article{yourcitation2025, 
-  title={IndicDLP: A Foundational Dataset for Multi-Lingual and Multi-Domain Document Layout Parsing}, 
-  author={Oikantik Nath, Sahithi Kukkala, Mitesh Khapra, Ravi Kiran Sarvadevabhatla}, 
-  booktitle={International Conference on Document Analysis and Recognition (ICDAR)}, 
-  year={2025}
+@InProceedings{10.1007/978-3-032-04614-7_2,
+author="Nath, Oikantik
+and Kukkala, Sahithi
+and Khapra, Mitesh
+and Sarvadevabhatla, Ravi Kiran",
+editor="Yin, Xu-Cheng
+and Karatzas, Dimosthenis
+and Lopresti, Daniel",
+title="IndicDLP: A Foundational Dataset for Multi-lingual and Multi-domain Document Layout Parsing",
+booktitle="Document Analysis and Recognition -- ICDAR 2025",
+year="2026",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="23--39",
+abstract="Document layout analysis is essential for downstream tasks such as information retrieval, extraction, OCR, and digitization. However, existing large-scale datasets like PubLayNet and DocBank lack fine-grained region labels and multilingual diversity, making them insufficient for representing complex document layouts. Human-annotated datasets such as {\$}{\$}M^{\{}6{\}}Doc{\$}{\$}M6Doc and {\$}{\$}{\backslash}text {\{}D{\}}^{\{}4{\}}{\backslash}text {\{}LA{\}}{\$}{\$}D4LA offer richer labels and greater domain diversity, but are too small to train robust models and lack adequate multilingual coverage. This gap is especially pronounced for Indic documents, which encompass diverse scripts yet remain underrepresented in current datasets, further limiting progress in this space. To address these shortcomings, we introduce IndicDLP, a large-scale foundational document layout dataset spanning 11 representative Indic languages alongside English and 12 common document domains. Additionally, we curate UED-mini, a dataset derived from DocLayNet and {\$}{\$}M^{\{}6{\}}Doc{\$}{\$}M6Doc, to enhance pretraining and provide a solid foundation for Indic layout models. Our experiments demonstrate that fine-tuning existing English models on IndicDLP significantly boosts performance, validating its effectiveness. Moreover, models trained on IndicDLP generalize well beyond Indic layouts, making it a valuable resource for document digitization. This work bridges gaps in scale, diversity, and annotation granularity, driving inclusive and efficient document understanding.",
+isbn="978-3-032-04614-7"
 }
 ```
 

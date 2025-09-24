@@ -6,7 +6,7 @@
 </samp>
 
 
-**_[ICDAR 2025 (ORAL)](https://www.icdar2025.com/)_**
+**_[ICDAR 2025 (Oral) — 🏆 Best Student Paper Runner-Up Award](https://www.icdar2025.com/)_**
 
 | [![PDF + arXiv](https://img.shields.io/badge/PDF%20|%20arXiv-brightgreen)](https://link_to_paper.com) | [![Project + Homepage](https://img.shields.io/badge/Project%20|%20Homepage-ff5f5f)](https://indicdlp.github.io/) | [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://github.com/IndicDLP/IndicDLP/blob/main/LICENCE) |
 
